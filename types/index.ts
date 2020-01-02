@@ -15,6 +15,8 @@ export interface IPoint {
   [key: string]: number | undefined;
 }
 
+export type IPointTuple = [number, number];
+
 export type Matrix = number[];
 
 export interface IBBox extends BBox {

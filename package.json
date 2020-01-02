@@ -26,8 +26,8 @@
     "clean": "rimraf esm lib dist",
     "lint": "lint-staged",
     "tslint": "tslint -c tslint.json 'src/**/*.ts'",
-    "test": "jest",
-    "test-live": "DEBUG_MODE=1 jest --watch  ./tests/unit/graph/tree-graph-spec.ts",
+    "test": "npm run build && jest",
+    "test-live": "DEBUG_MODE=1 jest --watch  ./tests/unit/layout/web-worker-spec.ts",
     "coverage": "jest --coverage",
     "ci": "run-s build coverage",
     "doc": "rimraf apis && typedoc",
@@ -44,6 +44,9 @@
     "@antv/path-util": "^2.0.3",
     "@antv/scale": "^0.2.0",
     "@antv/util": "~2.0.5",
+    "d3-force": "^2.0.1",
+    "dagre": "^0.8.5",
+    "numericjs": "^1.2.6",
     "lodash": "^4.17.15",
     "tslib": "^1.10.0"
   },
@@ -76,7 +79,8 @@
     "typescript": "^3.5.3",
     "typescript-transform-paths": "^1.1.14",
     "webpack": "^4.41.4",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "worker-loader": "^2.0.0"
   },
   "husky": {
     "hooks": {

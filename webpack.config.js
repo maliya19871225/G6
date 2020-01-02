@@ -14,13 +14,27 @@ module.exports = {
   resolve: {
     alias: {
       '@g6/types': resolve(process.cwd(), './types'),
-      '@g6': resolve(process.cwd(), './src')
+      '@g6': resolve(process.cwd(), './src'),
     },
     // Add `.ts` as a resolvable extension.
     extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
+      {
+        test: /\.worker\.ts$/,
+        exclude: /(node_modules|bower_components)/,
+        use: [
+          {
+            loader: 'worker-loader',
+            options: {
+              inline: true,
+              fallback: false,
+              name: 'g6Layout.worker.js',
+            },
+          },
+        ],
+      },
       {
         test: /\.js$/,
         use: {
